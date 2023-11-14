@@ -6,7 +6,6 @@ const db = firestore.getFirestore();
 
 
 router.get("/:postId", (req, res) => {
-    // How do I get a param ?!!
     const postId = req.params.postId;
     const postQuery = firestore.getDoc(firestore.doc(db, "posts", postId));
 
@@ -19,4 +18,5 @@ router.get("/:postId", (req, res) => {
         });
            
 }); 
+
 module.exports = router; 

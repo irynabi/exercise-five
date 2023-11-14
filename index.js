@@ -1,7 +1,8 @@
 const express = require('express')
 const app = express()
+const router = express.Router();
 const firebase = require("firebase/app");
-const port = 3000
+const port = 4000
 
 const firebaseConfig = {
     apiKey: "AIzaSyC9T6uCWcxYwB2juyWXkk73YDeJSMTpZQo",
@@ -16,10 +17,11 @@ firebase.initializeApp(firebaseConfig);
 
 const indexRoute = require('./routes/index');
 const singlePostRoute = require('./routes/singlePost');
-//const createPostRoute = require('./routes/createPost');
+const createPostRoute = require('./routes/createPost');
 
 app.use("/", indexRoute);
 app.use("/post", singlePostRoute);
+app.use("/create", createPostRoute);
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
