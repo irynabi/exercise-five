@@ -1,5 +1,4 @@
 const express = require('express');
-const { getFirestore } = require('firebase/firestore');
 const router = express.Router();
 const firestore = require("firebase/firestore");
 const db = firestore.getFirestore(); 

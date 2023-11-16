@@ -1,6 +1,5 @@
 const express = require('express')
 const app = express()
-const router = express.Router();
 const firebase = require("firebase/app");
 const port = 4000
 

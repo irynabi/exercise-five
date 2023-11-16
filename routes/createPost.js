@@ -1,11 +1,10 @@
 const express = require("express");
-const { getFirestore } = require('firebase/firestore');
 const router = express.Router();
 const firestore = require("firebase/firestore");
 const db = firestore.getFirestore();
 
 const submitForm = `
-    <form action="/create/post">
+    <form action="/create/submit">
     <label>Title
         <input type= "text" name="postTitle"/>
     </label>
@@ -27,11 +26,11 @@ router.get("/", (req, res) => {
 router.get("/submit", (req, res) => {
     const queryParams = req.query;
     const title = queryParams.postTitle;
-    const id = title.replace(/\s+/g,"-")/toLowerCase();
+    const id = title.replace(/\s+/g,"-").toLowerCase();
     const text = queryParams.postText;
     const author = queryParams.author;
 
-    const setBlogPost = firebase.setDoc(firestore.doc(db, "posts", id), {
+    const setBlogPost = firestore.setDoc(firestore.doc(db, "posts", id), {
         postTitle: title,
         postText: text,
         author: author,
